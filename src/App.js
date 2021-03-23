@@ -12,7 +12,6 @@ function App() {
   const [todoList, setTodoList] = useState([]);
 
   useEffect(()=>{
-    console.log("Home here");
     renderTasks();
   },[])
  
@@ -52,10 +51,10 @@ function App() {
         <div className="to-dos">
           {renderTasks()}
         </div>
-        <div className="add-to-do">
-            <TextField className="to-do-text-area" id="filled-basic" label="Add a Task" variant="filled" value={textValue} onChange={(e)=>{setTextValue(e.target.value)}} />
+      <div className="add-to-do">
+          <TextField className="to-do-text-area" id="filled-basic" label="Add a Task" variant="filled" value={textValue} onChange={(e)=>{setTextValue(e.target.value)}} />
           <AddIcon id="add-to-do-btn" onClick={addTask}/>
-        </div>
+      </div>
       </div>
     </div>
   )

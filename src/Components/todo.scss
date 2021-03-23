@@ -1,9 +1,20 @@
 .write-task{
+    z-index: 1;
     display: flex;
-    justify-content: space-between;
+ 
     align-items: center;
     padding: 15px;
     background: #ed1866;
     border-radius: 10px;
     margin-bottom: 5px;
+    width: 90%;
+
+    .text{
+        width: 90%;
+        overflow-wrap: break-word;
+    }
+    .done{
+        margin-left: 5px;
+        width: 10%;
+    }
 }

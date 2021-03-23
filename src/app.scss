@@ -1,53 +1,66 @@
+
 .main-frame {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    
   
     .clock {
+        z-index: 1;
         padding: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        background: #f7c0bc;
-        border-radius: 60px 60px 0px 0px;
+        width: 95%;
+
 
     }
   
     .to-do-area{
+        height: 70%;
+        background: #ffffff;
+        border: 1px solid black;
+        z-index: 2;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         width: 100%;
+        border-radius: 30px 30px 20px 20px;
+        box-shadow: 1px -11px 16px -7px rgba(0,0,0,0.75);
 
         .app-title{
             margin-top: 5px;
             padding:5px;
             font-size: 1.5rem;
+            border-bottom: 10px dotted pink;
         }
 
         .to-dos{
             margin: 20px 0px;
             width: 90%;
+            height: 90%;
+            overflow-y: scroll;    
         }
 
 
-        .add-to-do{
-            width: 90%;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            border-radius: 5px;
-            box-shadow: 2px 3px 2px 2px rgba(0,0,0,0.49);
-
-            .to-do-text-area{
-                width: 88%;
-            }
-            
+    .add-to-do{
+        background: rgb(255, 255, 255);
+        z-index: 5;
+        position: fixed;
+        bottom: 2%;
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: 2px 3px 2px 2px rgba(0,0,0,0.49);
+        .to-do-text-area{
+            width: 88%;
         }
+        
+    }
 
     }
   }

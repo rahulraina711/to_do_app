@@ -9,8 +9,8 @@ export default function ToDo (props) {
 
     return(
         <div className="write-task" onClick={()=>{setDone(true)}}>
-            {props.task} 
-            {done && <CheckIcon />}
+            <div className="text">{props.task}</div>
+            <div className="done">{done && <CheckIcon />}</div> 
         </div>
     )
 }

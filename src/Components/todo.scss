@@ -41,3 +41,25 @@
     }
 }
 
+.delete{
+    position: fixed;
+    left: 150%;
+    z-index: 1;
+    display: flex;
+ 
+    align-items: center;
+    padding: 15px;
+    background: #64d423;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    width: 90%;
+
+    .text{
+        width: 90%;
+        overflow-wrap: break-word;
+    }
+    .done{
+        margin-left: 5px;
+        width: 10%;
+    }
+}

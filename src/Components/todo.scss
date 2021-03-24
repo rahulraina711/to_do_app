@@ -43,7 +43,7 @@
 
 .delete{
     
-    animation: deleted 2s forwards;
+    animation: deleted 1s forwards;
     z-index: 1;
     display: flex;
  
@@ -66,8 +66,10 @@
 
 @keyframes deleted {
     0%{
-        left: 15%;
         position: relative;
+    }
+    10%{
+        left:0%;
     }
 
 

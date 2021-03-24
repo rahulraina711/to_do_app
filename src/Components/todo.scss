@@ -42,8 +42,8 @@
 }
 
 .delete{
-    position: fixed;
-    left: 150%;
+    
+    animation: deleted 2s forwards;
     z-index: 1;
     display: flex;
  
@@ -61,5 +61,19 @@
     .done{
         margin-left: 5px;
         width: 10%;
+    }
+}
+
+@keyframes deleted {
+    0%{
+        left: 15%;
+        position: relative;
+    }
+
+
+    100%{
+        left: 150%;
+        position: fixed;
+        display: none;
     }
 }

@@ -6,14 +6,20 @@ import AddIcon from '@material-ui/icons/Add';
 import ClearIcon from '@material-ui/icons/ClearAll';
 import { TextField } from '@material-ui/core';
 import ToDos from './Components/ToDo';
+import { useDispatch, useSelector } from 'react-redux';
+import {taskAdded, taskRemoved} from './store/todos';
+
 
 function App() {
   const [value, setValue] = useState(new Date()); // clock time value
   const [textValue, setTextValue] = useState(""); // controlledDOM element value
   const [todoList, setTodoList] = useState([]);   // all the tasks are stored in this state
+  const tasksFromState = useSelector(state=>state.tasks);
+  const dispatch = useDispatch();
 
   useEffect(()=>{
-    checkLocalStorage();
+    setLocalStorage();
+    //checkLocalStorage();
     renderTasks();
   },[])
  
@@ -28,28 +34,45 @@ function App() {
     }
   }, []);
 
+  function setLocalStorage (){
+    const taskList= JSON.parse(localStorage.getItem('tasks'));
+    if(!taskList) return localStorage.setItem('tasks',JSON.stringify(tasksFromState));
+    // else {
+    //   // localStorage.setItem('tasks',JSON.stringify());
+      
+    // }
+    // console.log(tasks[0]);
+    
+  }
+
   function addTask (){
     //console.log("clicked Add", textValue);
-    localStorage.setItem(textValue, false)
-    let tasks = [...todoList, {task:textValue, done: false}];
-    setTodoList(tasks);
-    setTextValue("");
+    //localStorage.setItem(textValue, false)
+    dispatch(taskAdded({desc:textValue}));
+    setTimeout(()=>{
+      console.log(tasksFromState.length);
+    },1000)
+    
+    // localStorage.setItem('tasks',JSON.stringify(tasksFromState));
+    // let tasks = [...todoList, {task:textValue, done: false}];
+    // setTodoList(tasks);
+    // setTextValue("");
   }
 
-  function checkLocalStorage(){
-    const taskList = [];
-    if(localStorage.length!==0){
-      for(let i=0; i< localStorage.length;i++){
-        const x = {
-          task :localStorage.key(i),
-          done :localStorage.getItem(localStorage.key(i))
-        }; //object end
-        taskList.push(x);
-      }// for end
-      setTodoList(taskList);
+  // function checkLocalStorage(){
+  //   const taskList = [];
+  //   if(localStorage.length!==0){
+  //     for(let i=0; i< localStorage.length;i++){
+  //       const x = {
+  //         task :localStorage.key(i),
+  //         done :localStorage.getItem(localStorage.key(i))
+  //       }; //object end
+  //       taskList.push(x);
+  //     }// for end
+  //     setTodoList(taskList);
 
-    }
-  }
+  //   }
+  // }
 
   function clearAll(){
     localStorage.clear();

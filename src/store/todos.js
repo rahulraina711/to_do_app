@@ -7,14 +7,16 @@ export const taskRemoved = createAction("taskRemoved");
 // console.log(taskAdded({desc:"Here is task"}));
 
 let lastId = 0;
-
-export default createReducer([],{
+const initialState = {tasks:[]}
+export default createReducer(initialState,{
     taskAdded: (state, action) => {
-        state.push({
+        state.tasks.push({
             id: ++lastId,
-            desc: action.payload.description,
+            desc: action.payload.desc,
             res: false
         })
-    }
-})
+    },
+
+    taskRemoved: (state, action) =>state.tasks.filter(task=> task.id !== action.payload.id),
+});
 

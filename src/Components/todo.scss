@@ -12,6 +12,9 @@
     .text{
         width: 90%;
         overflow-wrap: break-word;
+        &:hover{
+            cursor: pointer;
+        }
     }
     .done{
         margin-left: 5px;
@@ -52,6 +55,9 @@
     border-radius: 10px;
     margin-bottom: 5px;
     width: 90%;
+    &:hover{
+        cursor: pointer;
+    }
 
     .text{
         width: 90%;

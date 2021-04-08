@@ -19,12 +19,12 @@ export default function ToDo (props) {
 
     function deleteTask (){
         dispatch(taskRemoved({id:props.id}))
-        // localStorage.removeItem(props.task);
+        localStorage.removeItem(props.task);
         setColor("delete");
     }
 
     function checkAttrs(){
-        console.log(props.res);
+        //console.log(props.res);
         if(props.done==="true"){
             console.log("if here");
             setDone(true);
@@ -38,7 +38,7 @@ export default function ToDo (props) {
     }
 
     function setAttrs(){
-       // localStorage.setItem(props.task, true);
+        localStorage.setItem(props.task, true);
         setDone(true);
         setColor("write-task-done");
     }

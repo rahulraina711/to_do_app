@@ -45,6 +45,7 @@ function App() {
 
   function addTask (){
     dispatch(taskAdded({desc:textValue}));
+    setTextValue("");
    }
 
   function clearAll(){
@@ -55,7 +56,7 @@ function App() {
   function renderTasks () {
     if(tasksFromState){
       return tasksFromState.map((task,i)=>{
-        return <ToDos key={i} task={task.desc} id={task.id} res={task.res} />
+        return <ToDos key={task.id} task={task.desc} id={task.id} res={task.res} />
       })
     }
   }

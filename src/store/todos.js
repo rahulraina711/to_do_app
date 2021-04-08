@@ -17,6 +17,9 @@ export default createReducer(initialState,{
         })
     },
 
-    taskRemoved: (state, action) =>state.tasks.filter(task=> task.id !== action.payload.id),
+    taskRemoved: (state, action) =>{return {
+        ...state,
+        tasks: state.tasks.filter(task=> task.id !== action.payload.id)
+    }}
 });
 

@@ -18,8 +18,11 @@ export default function ToDo (props) {
     },[])
 
     function deleteTask (){
-        dispatch(taskRemoved({id:props.id}))
-        localStorage.removeItem(props.task);
+        setTimeout(()=>{
+            dispatch(taskRemoved({id:props.id}))
+            localStorage.removeItem(props.task);
+        },1000);
+        
         setColor("delete");
     }
 

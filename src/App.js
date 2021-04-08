@@ -38,41 +38,14 @@ function App() {
     const taskList= JSON.parse(localStorage.getItem('tasks'));
     if(!taskList) return localStorage.setItem('tasks',JSON.stringify(tasksFromState));
     // else {
-    //   // localStorage.setItem('tasks',JSON.stringify());
-      
-    // }
-    // console.log(tasks[0]);
-    
+    //   let obj = localStorage.getItem('tasks');
+    //   obj.map(task=>dispatch(taskAdded({desc: task.desc})))
+    // }   
   }
 
   function addTask (){
-    //console.log("clicked Add", textValue);
-    //localStorage.setItem(textValue, false)
     dispatch(taskAdded({desc:textValue}));
-    setTimeout(()=>{
-      console.log(tasksFromState.length);
-    },1000)
-    
-    // localStorage.setItem('tasks',JSON.stringify(tasksFromState));
-    // let tasks = [...todoList, {task:textValue, done: false}];
-    // setTodoList(tasks);
-    // setTextValue("");
-  }
-
-  // function checkLocalStorage(){
-  //   const taskList = [];
-  //   if(localStorage.length!==0){
-  //     for(let i=0; i< localStorage.length;i++){
-  //       const x = {
-  //         task :localStorage.key(i),
-  //         done :localStorage.getItem(localStorage.key(i))
-  //       }; //object end
-  //       taskList.push(x);
-  //     }// for end
-  //     setTodoList(taskList);
-
-  //   }
-  // }
+   }
 
   function clearAll(){
     localStorage.clear();
@@ -80,10 +53,15 @@ function App() {
   }
 
   function renderTasks () {
-    return todoList.map((task,i)=>{
-      return <ToDos key={i} task={task.task} done={task.done} />
-    })
+    if(tasksFromState){
+      return tasksFromState.map((task,i)=>{
+        return <ToDos key={i} task={task.desc} id={task.id} res={task.res} />
+      })
+    }
   }
+
+
+  
  
   return (
     <div className="main-frame">
@@ -93,7 +71,7 @@ function App() {
       </div>
       <div className="to-do-area">
         <div className="app-title">
-          Todays Work List
+          To-dos' for today
         </div>
         <div className="to-dos">
           {renderTasks()}
